@@ -14,11 +14,11 @@ class AuthTest extends TestCase
 
     public function test_auth_register() {
         $this->actingAs(factory(User::class)->create());
-        $reponse = $this->post('/api/register')->assertStatus(201);
+        $reponse = $this->post('/oauth/token')->assertStatus(201);
     }
 
     public function test_auth_login() {
         $this->actingAs(factory(User::class)->create());
-        $reponse = $this->post('/api/login')->assertOk();
+        $reponse = $this->post('/oauth/token')->assertOk();
     }
 }
