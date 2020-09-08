@@ -1,11 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-body{
-    color: #97C475;
-    background-color: #282C34;
-}
-h1,h2,h3,h4,h5,h6 {
-    color: #E26B73;
-}
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
