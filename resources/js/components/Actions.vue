@@ -90,8 +90,8 @@ export default {
       return Math.max(Math.floor(Math.random() * max), min);
     },
     aiAttacks() {
-      var crit = Math.floor(Math.random() * 100) < 10; // AI crit chance 10 out of 100
-      var damage = crit ? this.doDamage(7, 14) : this.doDamage(0, 7);
+      let crit = Math.floor(Math.random() * 100) < 10; // AI crit chance 10 out of 100
+      let damage = crit ? this.doDamage(7, 14) : this.doDamage(0, 7);
       this.$store.state.playerHealth -= damage;
       this.$store.state.playerDamage = damage;
       this.$store.state.totalAiDamage += damage;
@@ -116,11 +116,11 @@ export default {
       this.checkWin();
     },
     attack() {
-      var crit = Math.floor(Math.random() * 100) < this.$store.state.critChance;
+      let crit = Math.floor(Math.random() * 100) < this.$store.state.critChance;
       this.$store.state.currentTurn += 1;
       this.$store.state.usedSpecial = false;
       this.$store.state.usedHeal = false;
-      var damage = crit ? this.doDamage(5, 10) : this.doDamage(0, 5);
+      let damage = crit ? this.doDamage(5, 10) : this.doDamage(0, 5);
       this.$store.state.aiHealth -= damage;
       this.$store.state.aiDamage = damage;
       this.$store.state.totalAiDamage += damage;
@@ -152,11 +152,10 @@ export default {
     },
     specialAttack() {
       if (this.$store.state.playerMana >= 20) {
-        var crit =
-          Math.floor(Math.random() * 100) < this.$store.state.critChance;
+        let crit = Math.floor(Math.random() * 100) < this.$store.state.critChance;
         this.$store.state.currentTurn += 1;
         this.$store.state.playerMana -= 20;
-        var damage = crit ? this.doDamage(10, 20) : this.doDamage(5, 10);
+        let damage = crit ? this.doDamage(10, 20) : this.doDamage(5, 10);
         this.$store.state.aiHealth -= damage;
         this.$store.state.aiDamage = damage;
         this.$store.state.playerDamage = damage;
@@ -185,7 +184,7 @@ export default {
       if (this.$store.state.playerMana >= 10) {
         this.$store.state.currentTurn += 1;
         this.$store.state.playerMana -= 10;
-        var heals = this.doDamage(4, 10);
+        let heals = this.doDamage(4, 10);
         if (this.$store.state.playerHealth <= 90) {
           this.$store.state.playerHealth += heals;
         } else {
